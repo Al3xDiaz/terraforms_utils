@@ -9,7 +9,8 @@ services:
     volumes:
       - ./files:/root/files
       - ./terraform:/root/terraform
-    working_dir: /root/
+      # - ./terraform/.profile:/root/.profile
+    working_dir: /root/terraform/
     entrypoint: ["/bin/sh"]
   packer:
     image: hashicorp/packer
@@ -20,5 +21,6 @@ services:
     volumes:
       - ./files:/root/files
       - ./packer:/root/packer
-    working_dir: /root/ 
+      # - ./packer/.profile:/root/.profile
+    working_dir: /root/packer/
     entrypoint: ["/bin/sh"]
