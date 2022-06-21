@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  terraform:
+    image: hashicorp/terraform
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    user: root
+    volumes:
+      - ./files:/root/files
+      - ./terraform:/root/terraform
+    working_dir: /root/
+    entrypoint: ["/bin/sh"]
+  packer:
+    image: hashicorp/packer
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    user: root
+    volumes:
+      - ./files:/root/files
+      - ./packer:/root/packer
+    working_dir: /root/ 
+    entrypoint: ["/bin/sh"]
