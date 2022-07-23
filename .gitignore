@@ -4,3 +4,4 @@ files/ssh-keys/
 #terraform
 .terraform/
 .terraform.lock.hcl
+terraform/dev.tfvars
